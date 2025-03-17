@@ -77,3 +77,63 @@ JobId=1380987 JobName=bash
    Power=
    NtasksPerTRES:0
 
+
+# Date 17th March 2025
+## Running third trio
+
+## Pipeline Version
+(wdl_test) hassan@node24:/data/humangen_kircherlab/hassan/HiFi-human-WGS-WDL$ git describe --tags
+v2.0.7
+
+
+## Config
+Yu3punga$j7dYu3punga$j7d{
+  "humanwgs_family.family": {
+    "family_id": "ThirdTrio",
+    "samples": [
+      {
+        "sample_id": "S009_X47-24_WGS-Rv-0155",
+        "hifi_reads": ["/data/humangen_kircherlab/hassan/bioscientia/r84149R1_20241107_141501/S009_X47-24_WGS-Rv-0155.hifi_reads.bam"],
+        "affected": true,
+        "father_id": "S011_X49-24_WGS-Rv-0155",
+        "mother_id": "S010_X48-24_WGS-Rv-0155"
+      },
+      {
+        "sample_id": "S010_X48-24_WGS-Rv-0155",
+        "hifi_reads": ["/data/humangen_kircherlab/hassan/bioscientia/r84149R1_20241107_141501/S010_X48-24_WGS-Rv-0155.hifi_reads.bam"],
+        "affected": false,
+        "sex": "FEMALE"
+      },
+      {
+        "sample_id": "S011_X49-24_WGS-Rv-0155",
+        "hifi_reads": ["/data/humangen_kircherlab/hassan/bioscientia/r84149R1_20241107_141501/S011_X49-24_WGS-Rv-0155.hifi_reads.bam"],
+        "affected": false,
+        "sex": "MALE"
+      }
+    ]
+  },
+  "humanwgs_family.phenotypes": "String? (optional)",
+  "humanwgs_family.ref_map_file": "backends/hpc/GRCh38.ref_map.v2p0p0.hpc.tsv",
+  "humanwgs_family.tertiary_map_file": "backends/hpc/GRCh38.tertiary_map.v2p0p0.hpc.tsv",
+  "humanwgs_family.backend": "HPC",
+  "humanwgs_family.gpu": true,
+  "humanwgs_family.preemptible": true
+}
+
+## Curr Dir
+(wdl_test) hassan@node24:/data/humangen_kircherlab/hassan/HiFi-human-WGS-WDL$ pwd
+/data/humangen_kircherlab/hassan/HiFi-human-WGS-WDL
+
+## Command to Run
+hassan@headnode01:/data/humangen_kircherlab/hassan/HiFi-human-WGS-WDL$ srun --partition=longterm --mem=256G -c 42 miniwdl run workflows/family.wdl -i backends/hpc/family.hpc.inputs.json --verbose
+
+
+# Date 17th March 2025
+## Running third trio
+## Pipeline Version
+## Config
+## Curr Dir
+## Curr Resources
+## Command to run
+
+
