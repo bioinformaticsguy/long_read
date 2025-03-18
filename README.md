@@ -128,7 +128,83 @@ Yu3punga$j7dYu3punga$j7d{
 hassan@headnode01:/data/humangen_kircherlab/hassan/HiFi-human-WGS-WDL$ srun --partition=longterm --mem=256G -c 42 miniwdl run workflows/family.wdl -i backends/hpc/family.hpc.inputs.json --verbose
 
 
-# Date 17th March 2025
+# Date 18th March 2025
+Ran with the above config and the following .sh script
+#!/bin/bash
+
+# Capture the current date and time
+current_date=$(date +"%Y-%m-%d_%H-%M-%S")
+echo "Date and Time is: $current_date"
+
+## Variables
+partition="longterm"
+nodes=1
+cpus=42
+memory=256GB 
+job_name="FamilyWDL"
+
+### Submit this Script with: sbatch <script.sh> ### 
+
+# Parameters for slurm (don't remove the # in front of #SBATCH!)
+#SBATCH --partition=$partition
+#SBATCH --nodes=$nodes
+#SBATCH -c $cpus
+#SBATCH --mem=$memory
+#SBATCH --job-name=$job_name
+
+# Set SLURM output file directly
+#SBATCH --output=${output_file}
+
+# Print SLURM configuration to output file
+
+echo ""
+echo "Requested Resoursces:"
+
+echo "#SBATCH --partition=$partition"
+echo "#SBATCH --nodes=$nodes" 
+echo "#SBATCH -c $cpus"  
+echo "SBATCH --mem=$memory"
+echo "SBATCH --job-name=$job_name"
+
+
+# For conda error
+export PATH=/work/hassan/hassan/miniforge/bin:$PATH
+source /work/hassan/hassan/miniforge/etc/profile.d/conda.sh
+
+echo ""
+# Load your necessary modules:
+echo 'Activating the Conda Environment'
+conda activate wdl_test
+echo "Conda Environment ($CONDA_DEFAULT_ENV) Activated"
+
+
+# Load Singularity
+module load singularity
+
+# Get to the correct Directory
+echo ""
+echo 'Changing Directory to the WDL Directory'
+cd /data/humangen_kircherlab/hassan/HiFi-human-WGS-WDL
+echo "Directory Changed to the WDL Directory: $PWD"
+
+# Submit the Command:
+echo "Running the following Command"
+echo "miniwdl run workflows/family.wdl -i backends/hpc/family.hpc.inputs.json --verbose"
+echo ""
+echo ""
+echo "###################################################"
+echo "Pipline Output"
+echo "###################################################"
+
+
+
+miniwdl run workflows/family.wdl -i backends/hpc/family.hpc.inputs.json --verbose
+
+
+
+
+
+# Date: 
 ## Running third trio
 ## Pipeline Version
 ## Config
