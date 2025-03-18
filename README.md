@@ -87,7 +87,7 @@ v2.0.7
 
 
 ## Config
-Yu3punga$j7dYu3punga$j7d{
+{
   "humanwgs_family.family": {
     "family_id": "ThirdTrio",
     "samples": [
