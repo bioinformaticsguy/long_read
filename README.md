@@ -202,6 +202,79 @@ miniwdl run workflows/family.wdl -i backends/hpc/family.hpc.inputs.json --verbos
 
 
 
+# Date: 
+## Running Fourth trio
+## Pipeline Version
+(wdl_test) hassan@node60:/data/humangen_kircherlab/hassan/HiFi-human-WGS-WDL$ git tag
+v2.0.7
+## Config
+{
+  "humanwgs_family.family": {
+    "family_id": "FourthTrio",
+    "samples": [
+      {
+        "sample_id": "S013_X91-24_WGS-Rv-0176",
+        "hifi_reads": ["/data/humangen_kircherlab/hassan/bioscientia//r84078_20250115_150208/S013_X91-24_WGS-Rv-0176.hifi_reads.bam"],
+        "affected": true,
+        "father_id": "S015_X93-24_WGS-Rv-0176",
+        "mother_id": "S014_X92-24_WGS-Rv-0176"
+      },
+      {
+        "sample_id": "S014_X92-24_WGS-Rv-0176",
+        "hifi_reads": ["/data/humangen_kircherlab/hassan/bioscientia//r84078_20250115_150208/S014_X92-24_WGS-Rv-0176.hifi_reads.bam"],
+        "affected": false,
+        "sex": "FEMALE"
+      },
+      {
+        "sample_id": "S015_X93-24_WGS-Rv-0176",
+        "hifi_reads": ["/data/humangen_kircherlab/hassan/bioscientia//r84078_20250115_150208/S015_X93-24_WGS-Rv-0176.hifi_reads.bam"],
+        "affected": false,
+        "sex": "MALE"
+      }
+    ]
+  },
+  "humanwgs_family.phenotypes": "Trisomy 21 (47,XY,+21) with partial gonadal dysgenesis",
+  "humanwgs_family.ref_map_file": "backends/hpc/GRCh38.ref_map.v2p0p0.hpc.tsv",
+  "humanwgs_family.tertiary_map_file": "backends/hpc/GRCh38.tertiary_map.v2p0p0.hpc.tsv",
+  "humanwgs_family.backend": "HPC",
+  "humanwgs_family.gpu": true,
+  "humanwgs_family.preemptible": true
+}
+## Curr Dir
+(wdl_test) hassan@node60:/data/humangen_kircherlab/hassan/HiFi-human-WGS-WDL$ pwd
+/data/humangen_kircherlab/hassan/HiFi-human-WGS-WDL
+## Curr Resources
+(wdl_test) hassan@node60:/data/humangen_kircherlab/hassan/HiFi-human-WGS-WDL$ scontrol show job  $SLURM_JOB_ID
+JobId=1395724 JobName=bash
+   UserId=hassan(1001) GroupId=Public(1000) MCS_label=N/A
+   Priority=2452 Nice=0 Account=hassan QOS=normal
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=1 Restarts=0 BatchFlag=0 Reboot=0 ExitCode=0:0
+   RunTime=1-10:49:22 TimeLimit=14-00:00:00 TimeMin=N/A
+   SubmitTime=2025-03-18T20:07:04 EligibleTime=2025-03-18T20:07:04
+   AccrueTime=Unknown
+   StartTime=2025-03-18T20:07:04 EndTime=2025-04-01T21:07:04 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2025-03-18T20:07:04
+   Partition=longterm AllocNode:Sid=headnode01:29891
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=node60
+   BatchHost=node60
+   NumNodes=1 NumCPUs=42 NumTasks=1 CPUs/Task=42 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=42,mem=256G,node=1,billing=42
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=42 MinMemoryNode=256G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=bash
+   WorkDir=/data/humangen_kircherlab/hassan/HiFi-human-WGS-WDL
+   Power=
+   NtasksPerTRES:0
+
+
+## Command to run
+miniwdl run workflows/family.wdl -i backends/hpc/family.hpc.inputs.json --verbose
+
+
 
 
 # Date: 
